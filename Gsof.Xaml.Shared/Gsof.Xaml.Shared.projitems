@@ -9,6 +9,10 @@
     <Import_RootNamespace>Gsof.Xaml.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attached\WindowAttached.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviour\WindowClosedBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviour\WindowMaximizedBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviour\WindowMinimizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\UIElementEx.cs" />
   </ItemGroup>
 </Project>
