@@ -2,7 +2,7 @@
 using Gsof.Xaml.Behaviours;
 using Gsof.Xaml.Extension;
 
-namespace Gsof.Xaml.Attached
+namespace Gsof.Xaml.Attacheds
 {
     public class WindowAttached
     {
