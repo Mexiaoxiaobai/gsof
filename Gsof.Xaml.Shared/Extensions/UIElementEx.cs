@@ -7,7 +7,7 @@ using System.Windows.Interactivity;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace Gsof.Xaml.Extension
+namespace Gsof.Xaml.Extensions
 {
     public static class UIElementEx
     {

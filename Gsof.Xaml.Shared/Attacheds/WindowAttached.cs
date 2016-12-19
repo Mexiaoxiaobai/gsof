@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using Gsof.Xaml.Behaviours;
-using Gsof.Xaml.Extension;
+using Gsof.Xaml.Extensions;
 
 namespace Gsof.Xaml.Attacheds
 {
