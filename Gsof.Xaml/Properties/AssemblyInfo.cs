@@ -9,9 +9,9 @@ using System.Windows.Markup;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Gsof.Xaml")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("a C#/Xaml library of gaoshang(gs)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("gaoshang")]
 [assembly: AssemblyProduct("Gsof.Xaml")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
@@ -32,13 +32,13 @@ using System.Windows.Markup;
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
 
-[assembly:ThemeInfo(
+[assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
-                             //(used if a resource is not found in the page, 
-                             // or application resource dictionaries)
+                                     //(used if a resource is not found in the page, 
+                                     // or application resource dictionaries)
     ResourceDictionaryLocation.SourceAssembly //where the generic resource dictionary is located
-                                      //(used if a resource is not found in the page, 
-                                      // app, or any theme specific resource dictionaries)
+                                              //(used if a resource is not found in the page, 
+                                              // app, or any theme specific resource dictionaries)
 )]
 
 
@@ -53,7 +53,7 @@ using System.Windows.Markup;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.0.6.0")]
-[assembly: AssemblyFileVersion("0.0.6.0")]
+//[assembly: AssemblyFileVersion("1.0.7.0")]
 [assembly: XmlnsDefinition("http://gsof.org", "Gsof.Xaml")]
 [assembly: XmlnsDefinition("http://gsof.org", "Gsof.Xaml.Attacheds")]
 [assembly: XmlnsDefinition("http://gsof.org", "Gsof.Xaml.Behaviours")]
