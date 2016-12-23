@@ -9,8 +9,10 @@
     <Import_RootNamespace>Gsof.Xaml.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attacheds\PopupAttached.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attacheds\WindowAttached.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\BindableResourceBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviours\PopupFollowBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowClosedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMaximizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMinimizedBehavior.cs" />

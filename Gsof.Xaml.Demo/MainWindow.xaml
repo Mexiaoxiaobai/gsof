@@ -3,10 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:gsof="http://gsof.org"
         xmlns:local="clr-namespace:Gsof.Xaml.Demo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"
+        Height="350"
+        Width="525">
     <Grid>
-        
+        <ToggleButton x:Name="_btnOpen"
+                      Width="100"
+                      Height="27"
+                      IsChecked="{Binding ElementName=_popup, Path=IsOpen}">
+        </ToggleButton>
+
+        <Popup x:Name="_popup"
+               Width="500"
+               Height="500"
+               PlacementTarget="{Binding ElementName=_btnOpen}"
+               gsof:PopupAttached.AllowFollow="True" >
+            <Border Background="BlueViolet"></Border>
+        </Popup>
     </Grid>
 </Window>
