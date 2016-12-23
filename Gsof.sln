@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gsof", "Gsof\Gsof.csproj", 
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Gsof.Shared", "Gsof.Shared\Gsof.Shared.shproj", "{76834B98-7E3D-43D7-B645-398828250534}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gsof.Xaml.Demo", "Gsof.Xaml.Demo\Gsof.Xaml.Demo.csproj", "{014313D4-9FE0-425B-9B9F-812BEB2AF053}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Gsof.Xaml.Shared\Gsof.Xaml.Shared.projitems*{314cf3f1-5564-40f0-8d82-bedf044ea402}*SharedItemsImports = 13
@@ -36,6 +38,12 @@ Global
 		{BA11514C-EAD2-4F52-85B1-FB91113FE766}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA11514C-EAD2-4F52-85B1-FB91113FE766}.Release-Net45|Any CPU.ActiveCfg = Release-Net45|Any CPU
 		{BA11514C-EAD2-4F52-85B1-FB91113FE766}.Release-Net45|Any CPU.Build.0 = Release-Net45|Any CPU
+		{014313D4-9FE0-425B-9B9F-812BEB2AF053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014313D4-9FE0-425B-9B9F-812BEB2AF053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014313D4-9FE0-425B-9B9F-812BEB2AF053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014313D4-9FE0-425B-9B9F-812BEB2AF053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014313D4-9FE0-425B-9B9F-812BEB2AF053}.Release-Net45|Any CPU.ActiveCfg = Release|Any CPU
+		{014313D4-9FE0-425B-9B9F-812BEB2AF053}.Release-Net45|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
