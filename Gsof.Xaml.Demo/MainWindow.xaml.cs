@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Gsof.Xaml.Theme;
 
 namespace Gsof.Xaml.Demo
 {
@@ -20,9 +21,18 @@ namespace Gsof.Xaml.Demo
     /// </summary>
     public partial class MainWindow : Window
     {
+        ThemeManager tm = new ThemeManager();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            tm.ApplyDefaultResource(Application.Current.Resources, "system", new[] { "Themes/Dictionary1.xaml" });
+            tm.ApplyResource(Application.Current.Resources, new ThemeGroup("system", new[] { new ResourceDictionary() { Source = new Uri("pack://application:,,,/Gsof.Xaml.Demo;component/Themes/Dictionary2.xaml") }, }));
         }
     }
 }

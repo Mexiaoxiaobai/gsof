@@ -17,5 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMaximizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMinimizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\UIElementEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeManager.cs" />
   </ItemGroup>
 </Project>

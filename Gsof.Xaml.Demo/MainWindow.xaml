@@ -11,6 +11,13 @@
         Height="350"
         Width="525">
     <Grid>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Top">
+            <TextBlock Foreground="{DynamicResource TitleBrush}">Titile</TextBlock>
+            <Button Content="Chagned" Click="ButtonBase_OnClick"/>
+            
+        </StackPanel>
+        
         <ToggleButton x:Name="_btnOpen"
                       Width="100"
                       Height="27"
