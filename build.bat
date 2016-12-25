@@ -15,4 +15,4 @@ REM Build
 
 REM Package
 mkdir Build
-call nuget pack "Gsof.Xaml\Gsof.Xaml.csproj" -o Build %version%
+call .paket\paket.exe pack output ./build
