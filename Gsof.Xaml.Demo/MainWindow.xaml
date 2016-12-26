@@ -30,7 +30,7 @@
                                            FontFamily="{TemplateBinding FontFamily}"
                                            HorizontalAlignment="Center" />
                                 <TextBlock Grid.Row="1"
-                                           Text="{Binding Now, RelativeSource={RelativeSource TemplatedParent}, StringFormat=\{0:MM月dd日 ddd\}}"
+                                           Text="{Binding Now, RelativeSource={RelativeSource TemplatedParent}, StringFormat=\{0:MM月dd日 dddd\}, ConverterCulture=zh-cn}"
                                            FontFamily="{TemplateBinding FontFamily}" />
                             </Grid>
                         </Border>
