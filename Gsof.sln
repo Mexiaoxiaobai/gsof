@@ -50,8 +50,8 @@ Global
 		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Release-Net45|Any CPU.ActiveCfg = Release|Any CPU
-		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Release-Net45|Any CPU.Build.0 = Release|Any CPU
+		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Release-Net45|Any CPU.ActiveCfg = Release-Net45|Any CPU
+		{8A2DB9CA-4B10-4C60-9072-88CBBA355519}.Release-Net45|Any CPU.Build.0 = Release-Net45|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
