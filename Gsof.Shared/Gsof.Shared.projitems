@@ -14,5 +14,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\Md5Extension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateTimeExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\IntPtrExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\PathExtension.cs" />
   </ItemGroup>
 </Project>
