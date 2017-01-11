@@ -9,6 +9,8 @@
     <Import_RootNamespace>Gsof.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamic\DelegatingMetaObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Emit\DelegateBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\BooleanExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ByteExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\Md5Extension.cs" />
