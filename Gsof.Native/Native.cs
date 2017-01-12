@@ -67,7 +67,7 @@ namespace Gsof.Native
 
         public TResult Invoke<TResult>(string p_funName, params object[] p_params)
         {
-            return Invoke<TResult>(p_funName, _calling, typeof(TResult), p_params);
+            return Invoke<TResult>(p_funName, _calling, p_params);
         }
 
         public TResult Invoke<TResult>(string p_funName, CallingConvention p_calling, params object[] p_params)
