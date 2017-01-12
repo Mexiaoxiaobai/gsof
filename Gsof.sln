@@ -58,8 +58,8 @@ Global
 		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Release-Net45|Any CPU.ActiveCfg = Release|Any CPU
-		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Release-Net45|Any CPU.Build.0 = Release|Any CPU
+		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Release-Net45|Any CPU.ActiveCfg = Release-Net45|Any CPU
+		{38B0FB28-BF02-4854-B79B-38D9433D5A0B}.Release-Net45|Any CPU.Build.0 = Release-Net45|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
