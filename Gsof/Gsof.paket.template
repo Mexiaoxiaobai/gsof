@@ -1,0 +1,6 @@
+type project
+licenseUrl http://opensource.org/licenses/MIT
+
+files
+	./bin/Release/Net40/Gsof.dll ==> lib/net40
+	./bin/Release/Net45/Gsof.dll ==> lib/net45

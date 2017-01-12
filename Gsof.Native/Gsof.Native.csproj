@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BA11514C-EAD2-4F52-85B1-FB91113FE766}</ProjectGuid>
+    <ProjectGuid>{38B0FB28-BF02-4854-B79B-38D9433D5A0B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gsof</RootNamespace>
-    <AssemblyName>Gsof</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Gsof.Native</RootNamespace>
+    <AssemblyName>Gsof.Native</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -51,9 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicNative.cs" />
+    <Compile Include="INative.cs" />
+    <Compile Include="LoadLibraryFlags.cs" />
+    <Compile Include="Native.cs" />
+    <Compile Include="NativeFactory.cs" />
+    <Compile Include="NativeFunctonAttribute.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <Import Project="..\Gsof.Shared\Gsof.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Gsof\Gsof.csproj">
+      <Project>{ba11514c-ead2-4f52-85b1-fb91113fe766}</Project>
+      <Name>Gsof</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
