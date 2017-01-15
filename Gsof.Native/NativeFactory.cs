@@ -9,7 +9,7 @@ namespace Gsof.Native
         {
             lock (typeof(NativeFactory))
             {
-                var native = new Gsof.Native.Native(p_fileName);
+                var native = new Native(p_fileName);
 
                 return native;
             }
@@ -19,7 +19,7 @@ namespace Gsof.Native
         {
             lock (typeof(NativeFactory))
             {
-                var native = new Gsof.Native.Native(p_fileName, p_disposable);
+                var native = new Native(p_fileName, p_disposable);
 
                 return native;
             }
@@ -29,7 +29,7 @@ namespace Gsof.Native
         {
             lock (typeof(NativeFactory))
             {
-                var native = new Gsof.Native.Native(p_fileName, p_calling);
+                var native = new Native(p_fileName, p_calling);
                 return native;
             }
         }
