@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Interactivity;
 
@@ -11,28 +12,43 @@ namespace Gsof.Xaml.Behaviours
         protected override void OnAttached()
         {
             base.OnAttached();
+
+            var window = GetWindow();
+            if (window != null)
+            {
+                window.StateChanged += OnWindowState;
+            }
+
             AssociatedObject.Click += OnButtonClick;
         }
 
         protected override void OnDetaching()
         {
             base.OnDetaching();
+
+            var window = GetWindow();
+            if (window != null)
+            {
+                window.StateChanged -= OnWindowState;
+            }
             AssociatedObject.Click -= OnButtonClick;
         }
 
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            if (_window == null)
-            {
-                _window = Window.GetWindow(AssociatedObject);
-            }
-
-            if (_window == null)
+            var window = GetWindow();
+            if (window == null)
             {
                 return;
             }
 
-            var isMax = _window.WindowState == WindowState.Maximized;
+            window.WindowState = UpdateButtonChecked() ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        private bool UpdateButtonChecked()
+        {
+            var window = GetWindow();
+            var isMax = window != null && window.WindowState == WindowState.Maximized;
 
             if (AssociatedObject is ToggleButton)
             {
@@ -40,7 +56,22 @@ namespace Gsof.Xaml.Behaviours
                 tb.IsChecked = isMax;
             }
 
-            _window.WindowState = isMax ? WindowState.Normal : WindowState.Maximized;
+            return isMax;
+        }
+
+        private void OnWindowState(object sender, EventArgs e)
+        {
+            UpdateButtonChecked();
+        }
+
+        private Window GetWindow()
+        {
+            if (_window == null)
+            {
+                _window = Window.GetWindow(AssociatedObject);
+            }
+
+            return _window;
         }
     }
 }

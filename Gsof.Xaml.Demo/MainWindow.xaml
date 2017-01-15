@@ -45,6 +45,7 @@
             <TextBlock Foreground="{DynamicResource TitleBrush}">Titile</TextBlock>
             <Button Content="Chagned"
                     Click="ButtonBase_OnClick" />
+            <CheckBox Content="Max" gsof:WindowAttached.Maximize="True" />
 
         </StackPanel>
 
