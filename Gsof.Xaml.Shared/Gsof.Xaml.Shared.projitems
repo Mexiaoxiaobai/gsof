@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Attacheds\PopupAttached.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attacheds\WindowAttached.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviours\BehaviorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\BindableResourceBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\PopupFollowBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\StylizedBehaviorCollection.cs" />
