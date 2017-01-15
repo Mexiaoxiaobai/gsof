@@ -105,6 +105,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gsof.Xaml.BlankWindow\Gsof.Xaml.BlankWindow.csproj">
+      <Project>{50247158-1b95-410a-9b43-3f169e15bec7}</Project>
+      <Name>Gsof.Xaml.BlankWindow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gsof.Xaml.Controls\Gsof.Xaml.Controls.csproj">
       <Project>{8a2db9ca-4b10-4c60-9072-88cbba355519}</Project>
       <Name>Gsof.Xaml.Controls</Name>
