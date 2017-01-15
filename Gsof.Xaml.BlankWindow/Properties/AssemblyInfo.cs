@@ -9,9 +9,9 @@ using System.Windows.Markup;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Gsof.Xaml.BlankWindow")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("a wpf blank window of gaoshang(gs)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("gaoshang")]
 [assembly: AssemblyProduct("Gsof.Xaml.BlankWindow")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
