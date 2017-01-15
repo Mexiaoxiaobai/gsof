@@ -1,0 +1,9 @@
+type project
+licenseUrl http://opensource.org/licenses/MIT
+
+dependencies
+	Gsof.Xaml >= 0.2.0
+	
+files
+	./bin/Release/Net40/Gsof.Xaml.BlankWindow.dll ==> lib/net40
+	./bin/Release/Net45/Gsof.Xaml.BlankWindow.dll ==> lib/net45
