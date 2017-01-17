@@ -53,7 +53,7 @@ namespace Gsof.Xaml.Extensions
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(p_element); i++)
             {
-                var child = VisualTreeHelper.GetChild(p_element, i) ;
+                var child = VisualTreeHelper.GetChild(p_element, i);
                 if (child == null)
                 {
                     continue;
@@ -135,6 +135,21 @@ namespace Gsof.Xaml.Extensions
             }
 
             itemBehaviors.Add(new T());
+        }
+
+        /// <summary>
+        /// 获取当前窗口
+        /// </summary>
+        /// <param name="p_dependencyObject"></param>
+        /// <returns></returns>
+        public static Window GetWindow(this DependencyObject p_dependencyObject)
+        {
+            if (p_dependencyObject == null)
+            {
+                throw new ArgumentNullException(nameof(p_dependencyObject));
+            }
+
+            return Window.GetWindow(p_dependencyObject);
         }
     }
 }

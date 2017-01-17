@@ -3,9 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using Gsof.Xaml.Behaviours;
 using Gsof.Xaml.BlankWindow.Native;
-using Gsof.Xaml.Extensions;
 
 namespace Gsof.Xaml.BlankWindow
 {
@@ -66,8 +64,6 @@ namespace Gsof.Xaml.BlankWindow
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-
-            OnMaximizedChanged();
             AddHandler(MouseDownEvent, new MouseButtonEventHandler(TitleBarMouseDown), true);
         }
 
@@ -122,17 +118,6 @@ namespace Gsof.Xaml.BlankWindow
         }
 
         public IWindowPlacementSettings WindowPlacementSettings { get; set; }
-
-        protected override void OnStateChanged(EventArgs e)
-        {
-            base.OnStateChanged(e);
-            OnMaximizedChanged();
-        }
-
-        protected virtual void OnMaximizedChanged()
-        {
-            HasMaximized = WindowState == WindowState.Maximized;
-        }
 
         public static bool GetDraggable(DependencyObject obj)
         {
