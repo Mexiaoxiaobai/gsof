@@ -11,7 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Attacheds\PopupAttached.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attacheds\WindowAttached.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Behaviours\BehaviorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\BindableResourceBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\PopupFollowBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\StylizedBehaviorCollection.cs" />
@@ -20,7 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMaximizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMinimizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToReVisibilityConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\UIElementEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\UIElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeManager.cs" />
   </ItemGroup>

@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interactivity;
 using System.Windows.Media;
-using System.Windows.Threading;
 
 namespace Gsof.Xaml.Extensions
 {
-    public static class UIElementEx
+    public static class DependencyExtension
     {
+        /// <summary>
+        /// 获取类型为 T 的第一父节点
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="element"></param>
+        /// <param name="p_func"></param>
+        /// <returns></returns>
         public static T ParentOfType<T>(this DependencyObject element, Func<T, bool> p_func = null) where T : DependencyObject
         {
             if (element == null) return null;
@@ -45,12 +49,11 @@ namespace Gsof.Xaml.Extensions
         /// <param name="p_element"></param>
         /// <param name="p_func"></param>
         /// <returns></returns>
-        public static T ChildOfType<T>(this DependencyObject p_element, Func<T, bool> p_func = null) where T : UIElement
+        public static T ChildOfType<T>(this DependencyObject p_element, Func<T, bool> p_func = null) where T : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(p_element); i++)
             {
-                UIElement child = VisualTreeHelper.GetChild(p_element, i) as FrameworkElement;
-
+                var child = VisualTreeHelper.GetChild(p_element, i) ;
                 if (child == null)
                 {
                     continue;
@@ -78,11 +81,11 @@ namespace Gsof.Xaml.Extensions
         /// <param name="p_element"></param>
         /// <param name="p_func"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ChildrenOfType<T>(this DependencyObject p_element, Func<T, bool> p_func = null) where T : UIElement
+        public static IEnumerable<T> ChildrenOfType<T>(this DependencyObject p_element, Func<T, bool> p_func = null) where T : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(p_element); i++)
             {
-                UIElement child = VisualTreeHelper.GetChild(p_element, i) as FrameworkElement;
+                var child = VisualTreeHelper.GetChild(p_element, i);
                 if (child == null)
                 {
                     continue;
@@ -109,39 +112,7 @@ namespace Gsof.Xaml.Extensions
         }
 
         /// <summary>
-        /// 延迟获得焦点，默认延迟 100ms
-        /// </summary>
-        /// <param name="p_element"></param>
-        /// <param name="p_time"></param>
-        public static void FocusDelay(this UIElement p_element, int p_time = 100)
-        {
-            Task.Factory.StartNew(() =>
-            {
-                Thread.Sleep(p_time);
-                p_element.Dispatcher.BeginInvoke(DispatcherPriority.Render, new Action(() => p_element.Focus()));
-            });
-        }
-
-        /// <summary>
-        /// 获取UIElement的相对位置
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="p_relative">相对于UIElement</param>
-        /// <returns>坐标值</returns>
-        public static Point GetRelativePosition(this UIElement source, UIElement p_relative)
-        {
-            Point pt = new Point();
-            MatrixTransform mat = source.TransformToVisual(p_relative) as MatrixTransform;
-            if (mat != null)
-            {
-                pt.X = mat.Matrix.OffsetX;
-                pt.Y = mat.Matrix.OffsetY;
-            }
-            return pt;
-        }
-
-        /// <summary>
-        /// 行为添加
+        /// 行为应用
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="p_dependencyObject"></param>

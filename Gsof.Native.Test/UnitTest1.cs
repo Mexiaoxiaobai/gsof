@@ -69,7 +69,7 @@ namespace Gsof.Native.Test
 
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
@@ -87,7 +87,7 @@ namespace Gsof.Native.Test
                     var result = native.Invoke<int>("test", CallingConvention.StdCall, input);
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
