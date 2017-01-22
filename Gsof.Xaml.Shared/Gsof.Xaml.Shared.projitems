@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMinimizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToReVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\KeyExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\UIElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeManager.cs" />

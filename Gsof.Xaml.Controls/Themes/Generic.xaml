@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Gsof.Xaml.Controls">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/Clock.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/Clock.xaml" />
+        <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/NumericUpDown.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

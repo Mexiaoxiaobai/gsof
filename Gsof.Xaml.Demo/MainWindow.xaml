@@ -6,7 +6,6 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:gsof="http://gsof.org"
         xmlns:local="clr-namespace:Gsof.Xaml.Demo"
-        xmlns:controls="clr-namespace:Gsof.Xaml.Controls;assembly=Gsof.Xaml.Controls"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="350"
@@ -19,10 +18,10 @@
     <Window.Resources>
 
         <Style x:Key="ClockStyle"
-               TargetType="{x:Type controls:Clock}">
+               TargetType="{x:Type gsof:Clock}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type controls:Clock}">
+                    <ControlTemplate TargetType="{x:Type gsof:Clock}">
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
@@ -57,6 +56,10 @@
                 
             </Button>
 
+            <gsof:NumericUpDown Value="0"/>
+            
+            <TextBox />
+
         </StackPanel>
 
         <ToggleButton x:Name="_btnOpen"
@@ -73,7 +76,7 @@
             <Border Background="BlueViolet"></Border>
         </Popup>
 
-        <controls:Clock HorizontalAlignment="Right"
+        <gsof:Clock HorizontalAlignment="Right"
                         Style="{DynamicResource ClockStyle}" />
     </Grid>
 </Window>
