@@ -105,5 +105,17 @@ namespace Gsof.Shared.Extensions
                 ptr.Free();
             }
         }
+
+        public static bool IsZero(this IntPtr p_intPtr)
+        {
+            return p_intPtr == IntPtr.Zero;
+        }
+
+        public static byte[] GetBytes(this IntPtr p_intPtr, int p_length)
+        {
+            byte[] buffer = new byte[p_length];
+            Marshal.Copy(p_intPtr, buffer, 0, p_length);
+            return buffer;
+        }
     }
 }
