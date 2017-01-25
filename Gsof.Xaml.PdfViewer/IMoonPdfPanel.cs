@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Controls;
-using Gsof.Xaml.PdfViewer.MuPdf;
+using Gsof.Pdf.Declarations;
 
 namespace Gsof.Xaml.PdfViewer
 {

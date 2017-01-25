@@ -76,16 +76,15 @@
     <Compile Include="ContinuousMoonPdfPanel.xaml.cs">
       <DependentUpon>ContinuousMoonPdfPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helper\DpiHelper.cs" />
+    <Compile Include="DefaultPagePanel.cs" />
+    <Compile Include="PdfViewer.cs" />
+    <Compile Include="ScreenDpi.cs" />
     <Compile Include="Helper\PageHelper.cs" />
     <Compile Include="IMoonPdfPanel.cs" />
     <Compile Include="MoonPdfPanel.xaml.cs">
       <DependentUpon>MoonPdfPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="MoonPdfPanelInputHandler.cs" />
-    <Compile Include="MuPdf\MuPdfWrapper.cs" />
-    <Compile Include="Native\NativeMethods.cs" />
-    <Compile Include="Native\Structs.cs" />
     <Compile Include="PageDisplaySettings.cs" />
     <Compile Include="PageRowBound.cs" />
     <Compile Include="PageRowDisplayType.cs" />
@@ -125,6 +124,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gsof.Pdf\Gsof.Pdf.csproj">
+      <Project>{17f485a5-20f9-4ce8-9c33-cd29d8b182eb}</Project>
+      <Name>Gsof.Pdf</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gsof.Xaml\Gsof.Xaml.csproj">
       <Project>{ac4e88c9-3b38-4f48-907a-3cebdd6f4535}</Project>
       <Name>Gsof.Xaml</Name>

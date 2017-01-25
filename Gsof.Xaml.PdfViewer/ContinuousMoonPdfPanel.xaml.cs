@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Gsof.Pdf.Declarations;
 using Gsof.Xaml.Extensions;
 using Gsof.Xaml.PdfViewer.Helper;
-using Gsof.Xaml.PdfViewer.MuPdf;
 using Gsof.Xaml.PdfViewer.Virtualizing;
 
 namespace Gsof.Xaml.PdfViewer

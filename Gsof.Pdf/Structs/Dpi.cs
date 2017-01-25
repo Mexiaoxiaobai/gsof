@@ -2,11 +2,11 @@
 {
     public struct Dpi
     {
-        public float X;
+        public double X;
 
-        public float Y;
+        public double Y;
 
-        public Dpi(float x, float y)
+        public Dpi(double x, double y)
         {
             X = x;
             Y = y;

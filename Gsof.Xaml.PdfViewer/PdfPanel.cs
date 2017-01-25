@@ -6,8 +6,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using Gsof.Pdf.Declarations;
+using Gsof.Pdf.Implementation;
 using Gsof.Xaml.PdfViewer.Commands;
-using Gsof.Xaml.PdfViewer.MuPdf;
 using Microsoft.Win32;
 using Gsof.Shared.Extensions;
 
