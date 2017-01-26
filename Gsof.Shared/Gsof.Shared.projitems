@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Emit\DelegateBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\BooleanExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ByteExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorSpaceExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\EnumerableExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\Md5Extension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateTimeExtension.cs" />

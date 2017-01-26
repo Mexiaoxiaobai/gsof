@@ -77,6 +77,8 @@
       <DependentUpon>ContinuousMoonPdfPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="DefaultPagePanel.cs" />
+    <Compile Include="PdfBox.cs" />
+    <Compile Include="PdfBoxItem.cs" />
     <Compile Include="PdfViewer.cs" />
     <Compile Include="ScreenDpi.cs" />
     <Compile Include="Helper\PageHelper.cs" />

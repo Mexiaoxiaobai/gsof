@@ -5,7 +5,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using Gsof.Xaml.PdfViewer.MuPdf;
+using Gsof.Pdf.Declarations;
+using Gsof.Pdf.Implementation;
 using Gsof.Shared.Extensions;
 
 namespace Gsof.Xaml.PdfViewer
