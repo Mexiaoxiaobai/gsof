@@ -22,11 +22,11 @@
 
     public struct Matrix
     {
-        public float M11;
-        public float M12;
-        public float M21;
-        public float M22;
-        public float OffsetX;
-        public float OffsetY;
+        public double M11;
+        public double M12;
+        public double M21;
+        public double M22;
+        public double OffsetX;
+        public double OffsetY;
     }
 }
