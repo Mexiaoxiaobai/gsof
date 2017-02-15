@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Media.Animation;
+using Gsof.Extensions;
 
 namespace Gsof.Xaml.Extensions
 {
@@ -10,7 +11,7 @@ namespace Gsof.Xaml.Extensions
             var sb = p_storyboard;
             if (sb == null)
             {
-                return Task.FromResult(string.Empty);
+                return TaskExtension.FromResult(string.Empty);
             }
 
             TaskCompletionSource<string> tcs = new TaskCompletionSource<string>();
