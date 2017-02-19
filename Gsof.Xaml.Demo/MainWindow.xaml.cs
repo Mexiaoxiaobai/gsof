@@ -34,5 +34,11 @@ namespace Gsof.Xaml.Demo
             tm.ApplyDefaultResource(Application.Current.Resources, "system", new[] { "Themes/Dictionary1.xaml" });
             tm.ApplyResource(Application.Current.Resources, new ThemeGroup("system", new[] { new ResourceDictionary() { Source = new Uri("pack://application:,,,/Gsof.Xaml.Demo;component/Themes/Dictionary2.xaml") }, }));
         }
+
+        private void Windows1OnClick(object sender, RoutedEventArgs e)
+        {
+            var windows = new Window1();
+            windows.Show();
+        }
     }
 }

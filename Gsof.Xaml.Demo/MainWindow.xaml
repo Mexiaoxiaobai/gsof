@@ -53,11 +53,11 @@
                       gsof:WindowAttached.Maximize="True" />
 
             <Button Content="Drga Test">
-                
+
             </Button>
 
-            <gsof:NumericUpDown Value="0"/>
-            
+            <gsof:NumericUpDown Value="0" />
+
             <TextBox />
 
         </StackPanel>
@@ -68,6 +68,10 @@
                       IsChecked="{Binding ElementName=_popup, Path=IsOpen}">
         </ToggleButton>
 
+        <Button  Width="100"
+                 Height="27"
+                 HorizontalAlignment="Left" Click="Windows1OnClick"/>
+
         <Popup x:Name="_popup"
                Width="500"
                Height="500"
@@ -77,6 +81,6 @@
         </Popup>
 
         <gsof:Clock HorizontalAlignment="Right"
-                        Style="{DynamicResource ClockStyle}" />
+                    Style="{DynamicResource ClockStyle}" />
     </Grid>
 </Window>
