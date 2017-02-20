@@ -8,6 +8,9 @@ namespace Gsof.Xaml.Controls
         static FlipViewItem()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FlipViewItem), new FrameworkPropertyMetadata(typeof(FlipViewItem)));
+
+            HorizontalContentAlignmentProperty.OverrideMetadata(typeof(FlipViewItem), new FrameworkPropertyMetadata(HorizontalAlignment.Stretch));
+            VerticalContentAlignmentProperty.OverrideMetadata(typeof(FlipViewItem), new FrameworkPropertyMetadata(VerticalAlignment.Stretch));
         }
     }
 }

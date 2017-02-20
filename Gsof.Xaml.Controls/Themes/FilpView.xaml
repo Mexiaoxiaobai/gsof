@@ -32,7 +32,7 @@
         <Setter Property="SnapsToDevicePixels"
                 Value="True" />
         <Setter Property="Padding"
-                Value="4,1" />
+                Value="0" />
         <Setter Property="HorizontalContentAlignment"
                 Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="VerticalContentAlignment"
@@ -42,7 +42,7 @@
         <Setter Property="BorderBrush"
                 Value="Transparent" />
         <Setter Property="BorderThickness"
-                Value="1" />
+                Value="0" />
         <Setter Property="FocusVisualStyle"
                 Value="{StaticResource FocusVisual}" />
         <Setter Property="Template">
@@ -90,8 +90,10 @@
                         <MultiTrigger>
                             <!--<MultiTrigger.Conditions>
 
-                                --><!--<Condition Property="Selector.IsSelectionActive"
-                                           Value="True" />--><!--
+                                -->
+                            <!--<Condition Property="Selector.IsSelectionActive"
+                                           Value="True" />-->
+                            <!--
 
                                 <Condition Property="IsSelected"
                                            Value="True" />
@@ -187,15 +189,21 @@
                             <local:FlipViewPanel x:Name="PART_Root"
                                                  IsManipulationEnabled="True"
                                                  Background="Transparent">
-                                <ContentPresenter x:Name="PART_PREVIOUSITEM"
-                                                  Content="{TemplateBinding PreviousItem}"
-                                                  ContentTemplate="{TemplateBinding ItemTemplate}" />
-                                <ContentPresenter x:Name="PART_CURRENTITEM"
-                                                  Content="{TemplateBinding NextItem}"
-                                                  ContentTemplate="{TemplateBinding ItemTemplate}" />
-                                <ContentPresenter x:Name="PART_NEXTITEM"
-                                                  Content="{TemplateBinding SelectedItem}"
-                                                  ContentTemplate="{TemplateBinding ItemTemplate}" />
+                                <ContentControl x:Name="PART_PREVIOUSITEM"
+                                                Content="{TemplateBinding PreviousItem}"
+                                                ContentTemplate="{TemplateBinding ItemTemplate}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <ContentControl x:Name="PART_CURRENTITEM"
+                                                Content="{TemplateBinding SelectedItem}"
+                                                ContentTemplate="{TemplateBinding ItemTemplate}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <ContentControl x:Name="PART_NEXTITEM"
+                                                Content="{TemplateBinding NextItem}"
+                                                ContentTemplate="{TemplateBinding ItemTemplate}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </local:FlipViewPanel>
                             <Grid VerticalAlignment="Center"
                                   x:Name="PART_ButtonPanel"

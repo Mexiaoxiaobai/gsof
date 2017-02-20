@@ -17,9 +17,9 @@ namespace Gsof.Xaml.Controls
     public class FlipView : Selector
     {
         #region Private Fields
-        private ContentPresenter _currentItem;
-        private ContentPresenter _previousItem;
-        private ContentPresenter _nextItem;
+        private ContentControl _currentItem;
+        private ContentControl _previousItem;
+        private ContentControl _nextItem;
         private FrameworkElement _partRoot;
         private FrameworkElement _partContainer;
 
@@ -66,10 +66,6 @@ namespace Gsof.Xaml.Controls
         public static readonly DependencyProperty NextItemProperty =
             DependencyProperty.Register("NextItem", typeof(object), typeof(FlipView), new PropertyMetadata(null));
 
-
-
-
-
         #endregion
 
 
@@ -78,7 +74,9 @@ namespace Gsof.Xaml.Controls
         static FlipView()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FlipView), new FrameworkPropertyMetadata(typeof(FlipView)));
-            //SelectedIndexProperty.OverrideMetadata(typeof(FlipView), new FrameworkPropertyMetadata(-1, OnSelectedIndexChanged));
+            SelectedIndexProperty.OverrideMetadata(typeof(FlipView), new FrameworkPropertyMetadata(0, OnSelectedIndexChanged));
+            HorizontalContentAlignmentProperty.OverrideMetadata(typeof(FlipView), new FrameworkPropertyMetadata(HorizontalAlignment.Stretch));
+            VerticalContentAlignmentProperty.OverrideMetadata(typeof(FlipView), new FrameworkPropertyMetadata(VerticalAlignment.Stretch));
         }
 
         public FlipView()
@@ -156,6 +154,7 @@ namespace Gsof.Xaml.Controls
                 this.RefreshViewPort(this.SelectedIndex);
             }
         }
+
         private static void OnSelectedIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as FlipView;
@@ -193,15 +192,9 @@ namespace Gsof.Xaml.Controls
             Canvas.SetLeft(this._nextItem, this.ActualWidth);
             this._partRoot.RenderTransform = new TranslateTransform();
 
-            //var currentItem = this.GetItemAt(selectedIndex);
             var nextItem = this.GetItemAt(selectedIndex + 1);
             var previousItem = this.GetItemAt(selectedIndex - 1);
 
-            //this._currentItem.Content = currentItem;
-            //this._nextItem.Content = nextItem;
-            //this._previousItem.Content = previousItem;
-
-            //SelectedItem = currentItem;
             PreviousItem = previousItem;
             NextItem = nextItem;
         }
@@ -271,9 +264,9 @@ namespace Gsof.Xaml.Controls
         {
             base.OnApplyTemplate();
 
-            this._previousItem = this.GetTemplateChild("PART_PREVIOUSITEM") as ContentPresenter;
-            this._nextItem = this.GetTemplateChild("PART_NEXTITEM") as ContentPresenter;
-            this._currentItem = this.GetTemplateChild("PART_CURRENTITEM") as ContentPresenter;
+            this._previousItem = this.GetTemplateChild("PART_PREVIOUSITEM") as ContentControl;
+            this._nextItem = this.GetTemplateChild("PART_NEXTITEM") as ContentControl;
+            this._currentItem = this.GetTemplateChild("PART_CURRENTITEM") as ContentControl;
             this._partRoot = this.GetTemplateChild("PART_Root") as FrameworkElement;
             this._partContainer = this.GetTemplateChild("PART_Container") as FrameworkElement;
 
