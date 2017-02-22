@@ -6,9 +6,14 @@ namespace Gsof.Xaml.Extensions
 {
     public static class RenderTransformExtension
     {
-        public static T GetRenderTransform<T>(this FrameworkElement p_element) where T : Transform, new()
+        public static T GetRenderTransform<T>(this UIElement p_element) where T : Transform, new()
         {
             var element = p_element;
+
+            if (Equals(element.RenderTransform, Transform.Identity))
+            {
+                element.CreateRenderTransform();
+            }
 
             T t;
             do
@@ -26,7 +31,6 @@ namespace Gsof.Xaml.Extensions
                     break;
                 }
 
-                t = new T();
                 var tg = new TransformGroup();
                 tg.Children.Add(t);
                 element.RenderTransform = tg;
@@ -36,15 +40,10 @@ namespace Gsof.Xaml.Extensions
             return t;
         }
 
-        public static void CreateRenderTransform(this FrameworkElement p_element)
+        public static void CreateRenderTransform(this UIElement p_element)
         {
             var element = p_element;
             if (element == null)
-            {
-                return;
-            }
-
-            if (element.RenderTransform is TransformGroup)
             {
                 return;
             }

@@ -200,7 +200,7 @@
                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                 <ContentControl x:Name="PART_NEXTITEM"
-                                                Content="{TemplateBinding NextItem}"
+                                                Content="{Binding NextItem, RelativeSource={RelativeSource TemplatedParent}}"
                                                 ContentTemplate="{TemplateBinding ItemTemplate}"
                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />

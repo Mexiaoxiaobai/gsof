@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -30,15 +32,27 @@ namespace Gsof.Xaml.Controls
 
         #region DependencyProperty
 
-        public double ChangeSelectedOffset
+        public double Threshold
         {
-            get { return (double)GetValue(ChangeSelectedOffsetProperty); }
-            set { SetValue(ChangeSelectedOffsetProperty, value); }
+            get { return (double)GetValue(ThresholdProperty); }
+            set { SetValue(ThresholdProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for ChangeSelectedOffset.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ChangeSelectedOffsetProperty =
-            DependencyProperty.Register("ChangeSelectedOffset", typeof(double), typeof(FlipView), new PropertyMetadata(50d));
+        // Using a DependencyProperty as the backing store for Threshold.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ThresholdProperty =
+            DependencyProperty.Register("Threshold", typeof(double), typeof(FlipView), new PropertyMetadata(0.3d));
+
+
+
+        public bool AllowMouseDrag
+        {
+            get { return (bool)GetValue(AllowMouseDragProperty); }
+            set { SetValue(AllowMouseDragProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AllowMouseDrag.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AllowMouseDragProperty =
+            DependencyProperty.Register("AllowMouseDrag", typeof(bool), typeof(FlipView), new PropertyMetadata(true));
 
         /// <summary>
         /// 前一项
@@ -65,6 +79,25 @@ namespace Gsof.Xaml.Controls
         // Using a DependencyProperty as the backing store for NextItem.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NextItemProperty =
             DependencyProperty.Register("NextItem", typeof(object), typeof(FlipView), new PropertyMetadata(null));
+
+        #endregion
+
+
+        #region Attached DependencyProperty
+
+        public static bool GetUseMouseDragMove(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(UseMouseDragMoveProperty);
+        }
+
+        public static void SetUseMouseDragMove(DependencyObject obj, bool value)
+        {
+            obj.SetValue(UseMouseDragMoveProperty, value);
+        }
+
+        // Using a DependencyProperty as the backing store for UseMouseDragMove.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UseMouseDragMoveProperty =
+            DependencyProperty.RegisterAttached("UseMouseDragMove", typeof(bool), typeof(FlipView), new PropertyMetadata(false));
 
         #endregion
 
@@ -144,7 +177,7 @@ namespace Gsof.Xaml.Controls
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            this.RefreshViewPort(this.SelectedIndex);
+            //this.RefreshViewPort(this.SelectedIndex);
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -174,11 +207,11 @@ namespace Gsof.Xaml.Controls
                 return;
             }
 
-            if ((int)e.NewValue >= 0 && (int)e.NewValue < this.Items.Count)
-            {
-                double toValue = (int)e.OldValue < (int)e.NewValue ? -this.ActualWidth : this.ActualWidth;
-                this.RunSlideAnimation(toValue, this._fromValue);
-            }
+            //if ((int)e.NewValue >= 0 && (int)e.NewValue < this.Items.Count)
+            //{
+            //    double toValue = (int)e.OldValue < (int)e.NewValue ? -this.ActualWidth : this.ActualWidth;
+            //    this.RunSlideAnimation(toValue, this._fromValue);
+            //}
         }
 
         private void RefreshViewPort(int selectedIndex)
@@ -188,12 +221,14 @@ namespace Gsof.Xaml.Controls
                 return;
             }
 
+            _partRoot.CreateRenderTransform();
+
+
             Canvas.SetLeft(this._previousItem, -this.ActualWidth);
             Canvas.SetLeft(this._nextItem, this.ActualWidth);
-            this._partRoot.RenderTransform = new TranslateTransform();
 
-            var nextItem = this.GetItemAt(selectedIndex + 1);
             var previousItem = this.GetItemAt(selectedIndex - 1);
+            var nextItem = this.GetItemAt(selectedIndex + 1);
 
             PreviousItem = previousItem;
             NextItem = nextItem;
@@ -201,13 +236,6 @@ namespace Gsof.Xaml.Controls
 
         public void RunSlideAnimation(double toValue, double p_fromValue = 0)
         {
-            if (!(this._partRoot.RenderTransform is TranslateTransform))
-            {
-                this._partRoot.RenderTransform = new TranslateTransform();
-            }
-
-            _partRoot.CreateRenderTransform();
-
             var story = AnimationFactory.Instance.GetAnimation(this._partRoot, toValue, p_fromValue);
             story.Completed += (s, e) => this.RefreshViewPort(this.SelectedIndex);
             story.Begin();
@@ -260,6 +288,7 @@ namespace Gsof.Xaml.Controls
         #endregion
 
         #region Override methods
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -292,7 +321,22 @@ namespace Gsof.Xaml.Controls
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
             base.OnSelectionChanged(e);
+            RefreshViewPort(this.SelectedIndex);
+        }
 
+        protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
+        {
+            base.OnItemsChanged(e);
+
+            if (SelectedIndex < 0 && Items != null && Items.Count > 0)
+            {
+                SelectedIndex = 0;
+            }
+        }
+
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
             RefreshViewPort(this.SelectedIndex);
         }
 
@@ -312,19 +356,14 @@ namespace Gsof.Xaml.Controls
                 return;
             }
 
-            if (!(this._partRoot.RenderTransform is MatrixTransform))
-            {
-                this._partRoot.RenderTransform = new MatrixTransform();
-            }
-
             var cPoint = e.GetPosition(this);
             var x = cPoint.X - _startPoint.Value.X;
 
-            if ((this.SelectedIndex == 0 && x > 0 && this._elasticFactor > 0)
-                || (this.SelectedIndex == this.Items.Count - 1 && x < 0 && this._elasticFactor > 0))
-            {
-                this._elasticFactor -= 0.05;
-            }
+            //if ((this.SelectedIndex == 0 && x > 0 && this._elasticFactor > 0)
+            //    || (this.SelectedIndex == this.Items.Count - 1 && x < 0 && this._elasticFactor > 0))
+            //{
+            //    this._elasticFactor -= 0.05;
+            //}
 
             var tx = this._elasticFactor * x;
             if (Math.Abs(tx) >= this.ActualWidth)
@@ -332,18 +371,24 @@ namespace Gsof.Xaml.Controls
                 tx = (tx < 0 ? -1 : 1) * this.ActualWidth;
             }
 
-            var matrix = new Matrix();
-            matrix.Translate(tx, 0);
-            this._partRoot.RenderTransform = new MatrixTransform(matrix);
+            var tt = _partRoot.GetRenderTransform<TranslateTransform>();
+            tt.X = tx;
+            Console.WriteLine("X: {0}, tt.X: {1}", tx, tt.X);
 
-            if (x < 0)
-            {
-                _nextItem.Opacity = 0.5;
-            }
-            else
-            {
-                _previousItem.Opacity = 0.5;
-            }
+            //var matrix = new Matrix();
+            //matrix.Translate(tx, 0);
+            //this._partRoot.RenderTransform = new MatrixTransform(matrix);
+
+
+
+            //if (x < 0)
+            //{
+            //    _nextItem.Opacity = 0.5;
+            //}
+            //else
+            //{
+            //    _previousItem.Opacity = 0.5;
+            //}
 
             e.Handled = true;
         }
@@ -358,6 +403,8 @@ namespace Gsof.Xaml.Controls
 
         private void OnRootMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            var panel = _partRoot;
+
             var cPoint = e.GetPosition(this);
 
             if (_startPoint != null)
@@ -365,38 +412,27 @@ namespace Gsof.Xaml.Controls
                 this._fromValue = cPoint.X - _startPoint.Value.X;
             }
 
-            if (Math.Abs(this._fromValue) > ChangeSelectedOffset)
-            {
-                if (this._fromValue > 0)
-                {
-                    if (this.SelectedIndex > 0)
-                    {
-                        this.SelectedIndex -= 1;
-                    }
-                }
-                else
-                {
-                    if (this.SelectedIndex < this.Items.Count - 1)
-                    {
-                        this.SelectedIndex += 1;
-                    }
-                }
+            var sign = _fromValue > 0 ? -1 : 1;
+            var index = this.SelectedIndex + sign;
+            var allow = index < this.Items.Count && index > -1;
 
-                if (this._elasticFactor < 1)
+            if (Math.Abs(this._fromValue) > Threshold * panel.ActualWidth && allow)
+            {
+                panel.To(-sign * _partRoot.ActualWidth, () =>
                 {
-                    if (this._partRoot.RenderTransform is MatrixTransform)
+                    if (index < 0)
                     {
-                        this.RunSlideAnimation(0, ((MatrixTransform)this._partRoot.RenderTransform).Matrix.OffsetX);
+                        index = 0;
                     }
-                }
+
+                    this.SelectedIndex = index;
+                });
+
                 this._elasticFactor = 1.0;
             }
             else
             {
-                if (this._partRoot.RenderTransform is MatrixTransform)
-                {
-                    this.RunSlideAnimation(0, ((MatrixTransform)this._partRoot.RenderTransform).Matrix.OffsetX);
-                }
+                panel.To(0, null);
             }
 
             _startPoint = null;
@@ -406,11 +442,5 @@ namespace Gsof.Xaml.Controls
         }
 
         #endregion
-
-
-
-
-
-
     }
 }
