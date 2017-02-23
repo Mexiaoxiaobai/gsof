@@ -26,7 +26,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\RenderTransformExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StoryboardExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\UIElementExtension.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MouseEvents\MouseDragMoveEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MouseEvents\MouseDragEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MouseEvents\MouseDragEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeManager.cs" />
   </ItemGroup>

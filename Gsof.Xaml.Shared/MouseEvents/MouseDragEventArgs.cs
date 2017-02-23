@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Gsof.Xaml.Shared.MouseEvents
 {
-    public class MouseDragMoveEvent
+    public class MouseDragEventArgs : EventArgs
     {
 
     }
