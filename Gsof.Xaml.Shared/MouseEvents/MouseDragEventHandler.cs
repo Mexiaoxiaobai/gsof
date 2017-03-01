@@ -13,7 +13,8 @@ namespace Gsof.Xaml.Shared.MouseEvents
         private bool _isLeftButtonDown;
         private Point? _startPoint;
 
-        
+
+        public event EventHandler<MouseDragEventArgs> MouseDrag;
 
         public MouseDragEventHandler()
         {

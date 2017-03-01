@@ -14,7 +14,7 @@
         AllowsTransparency="False"
         Background="White"
         Padding="0"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" >
     <Window.Resources>
 
         <Style x:Key="ClockStyle"
