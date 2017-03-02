@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -53,6 +54,23 @@ namespace Gsof.Xaml.Extensions
         {
             var tt = p_element.GetRenderTransform<TranslateTransform>();
             p_element.To(tt.X, p_to, p_action);
+        }
+
+        public static Task BeginStoryboard(this FrameworkElement p_fe, string p_key)
+        {
+            var element = p_fe;
+            if (element == null)
+            {
+                return Gsof.Extensions.TaskExtensions.CompletedTask;
+            }
+
+            var sb = element.FindResource(p_key) as Storyboard;
+            if (sb != null)
+            {
+                return sb.BeginAsync();
+            }
+
+            return Gsof.Extensions.TaskExtensions.CompletedTask; ;
         }
     }
 }

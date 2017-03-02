@@ -2,8 +2,10 @@
 
 namespace Gsof.Extensions
 {
-    public static class TaskExtension
+    public static class TaskExtensions
     {
+        public static Task CompletedTask = FromResult(false);
+
         public static Task<TResult> FromResult<TResult>(TResult p_result)
         {
 #if NET40

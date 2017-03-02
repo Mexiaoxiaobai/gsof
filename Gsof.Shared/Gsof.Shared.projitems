@@ -19,7 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateTimeExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\IntPtrExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\PathExtension.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\TaskExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\TaskExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtension.cs" />
   </ItemGroup>
 </Project>

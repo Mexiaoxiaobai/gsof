@@ -11,7 +11,7 @@ namespace Gsof.Xaml.Extensions
             var sb = p_storyboard;
             if (sb == null)
             {
-                return TaskExtension.FromResult(string.Empty);
+                return Gsof.Extensions.TaskExtensions.FromResult(string.Empty);
             }
 
             TaskCompletionSource<string> tcs = new TaskCompletionSource<string>();
