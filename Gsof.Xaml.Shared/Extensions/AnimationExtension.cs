@@ -70,7 +70,7 @@ namespace Gsof.Xaml.Extensions
                 return sb.BeginAsync();
             }
 
-            return Gsof.Extensions.TaskExtensions.CompletedTask; ;
+            return Gsof.Extensions.TaskExtensions.CompletedTask;
         }
     }
 }
