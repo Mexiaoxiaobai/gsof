@@ -14,7 +14,7 @@
         AllowsTransparency="False"
         Background="White"
         Padding="0"
-        ResizeMode="NoResize" >
+        ResizeMode="NoResize">
     <Window.Resources>
 
         <Style x:Key="ClockStyle"
@@ -43,7 +43,8 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="Transparent"
+          gsof:WindowAttached.DragMoveable="True">
         <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Top">
             <TextBlock Foreground="{DynamicResource TitleBrush}">Titile</TextBlock>
@@ -70,7 +71,8 @@
 
         <Button  Width="100"
                  Height="27"
-                 HorizontalAlignment="Left" Click="Windows1OnClick"/>
+                 HorizontalAlignment="Left"
+                 Click="Windows1OnClick" />
 
         <Popup x:Name="_popup"
                Width="500"

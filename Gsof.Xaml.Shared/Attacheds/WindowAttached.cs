@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Gsof.Xaml.Behaviours;
 using Gsof.Xaml.Extensions;
+using Gsof.Xaml.Shared.Behaviours;
 
 namespace Gsof.Xaml.Attacheds
 {
@@ -73,10 +74,10 @@ namespace Gsof.Xaml.Attacheds
 
         // Using a DependencyProperty as the backing store for DragMoveable.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DragMoveableProperty =
-            DependencyProperty.RegisterAttached("DragMoveable", typeof(bool), typeof(WindowAttached), new PropertyMetadata(false,(o, args) =>
-                {
-                    o.ApplyBehavior<WindowClosedBehavior>();
-                }));
+            DependencyProperty.RegisterAttached("DragMoveable", typeof(bool), typeof(WindowAttached), new PropertyMetadata(false, (o, args) =>
+                 {
+                     o.ApplyBehavior<WindowDragMoveableBehavior>();
+                 }));
 
 
     }
