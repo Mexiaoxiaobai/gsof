@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowClosedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMaximizedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowMinimizedBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviours\WindowDragMoveableBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToReVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\AnimationExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyExtension.cs" />
