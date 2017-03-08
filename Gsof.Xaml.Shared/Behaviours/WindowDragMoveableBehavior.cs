@@ -26,15 +26,7 @@ namespace Gsof.Xaml.Shared.Behaviours
         protected override void OnAttached()
         {
             base.OnAttached();
-
-            if (AssociatedObject is ButtonBase)
-            {
-                ((Button)AssociatedObject).Click += (sender, e) => OnWindowDragMove();
-            }
-            else
-            {
-                AssociatedObject.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown), AllowHandler);
-            }
+            AssociatedObject.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown), AllowHandler);
         }
 
         protected override void OnDetaching()

@@ -66,7 +66,8 @@
         <ToggleButton x:Name="_btnOpen"
                       Width="100"
                       Height="27"
-                      IsChecked="{Binding ElementName=_popup, Path=IsOpen}">
+                      IsChecked="{Binding ElementName=_popup, Path=IsOpen}"
+                      gsof:WindowAttached.DragMoveable="True" >
         </ToggleButton>
 
         <Button  Width="100"

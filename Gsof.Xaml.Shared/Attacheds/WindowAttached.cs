@@ -22,7 +22,7 @@ namespace Gsof.Xaml.Attacheds
             DependencyProperty.RegisterAttached("Minimize", typeof(bool), typeof(WindowAttached), new PropertyMetadata(false,
                 (o, args) =>
                 {
-                    o.ApplyBehavior<WindowMinimizedBehavior>((bool)args.NewValue);
+                    o.ApplyBehavior<WindowMinimizedBehavior>(!(bool)args.NewValue);
                 }));
 
         public static bool GetMaximize(DependencyObject obj)
@@ -39,7 +39,7 @@ namespace Gsof.Xaml.Attacheds
         public static readonly DependencyProperty MaximizeProperty =
             DependencyProperty.RegisterAttached("Maximize", typeof(bool), typeof(WindowAttached), new PropertyMetadata(false, (o, args) =>
             {
-                o.ApplyBehavior<WindowMaximizedBehavior>((bool)args.NewValue);
+                o.ApplyBehavior<WindowMaximizedBehavior>(!(bool)args.NewValue);
             }));
 
         public static bool GetCloseable(DependencyObject obj)
@@ -57,7 +57,7 @@ namespace Gsof.Xaml.Attacheds
             DependencyProperty.RegisterAttached("Closeable", typeof(bool), typeof(WindowAttached), new PropertyMetadata(false,
                 (o, args) =>
                 {
-                    o.ApplyBehavior<WindowClosedBehavior>((bool)args.NewValue);
+                    o.ApplyBehavior<WindowClosedBehavior>(!(bool)args.NewValue);
                 }));
 
 
@@ -76,7 +76,7 @@ namespace Gsof.Xaml.Attacheds
         public static readonly DependencyProperty DragMoveableProperty =
             DependencyProperty.RegisterAttached("DragMoveable", typeof(bool), typeof(WindowAttached), new PropertyMetadata(false, (o, args) =>
                  {
-                     o.ApplyBehavior<WindowDragMoveableBehavior>((bool)args.NewValue);
+                     o.ApplyBehavior<WindowDragMoveableBehavior>(!(bool)args.NewValue);
                  }));
 
 
