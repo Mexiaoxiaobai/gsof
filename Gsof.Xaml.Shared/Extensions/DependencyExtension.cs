@@ -112,15 +112,15 @@ namespace Gsof.Xaml.Extensions
         }
 
         /// <summary>
-        /// 行为应用
+        /// 移除行为
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="p_dependencyObject"></param>
-        public static void ApplyBehavior<T>(this DependencyObject p_dependencyObject) where T : Behavior, new()
+        private static BehaviorCollection RemoveBehaviorInternal<T>(this DependencyObject p_dependencyObject) where T : Behavior, new()
         {
             if (p_dependencyObject == null)
             {
-                return;
+                return null;
             }
 
             BehaviorCollection itemBehaviors = Interaction.GetBehaviors(p_dependencyObject);
@@ -134,7 +134,42 @@ namespace Gsof.Xaml.Extensions
                 itemBehaviors.Remove(behavior);
             }
 
-            itemBehaviors.Add(new T());
+            return itemBehaviors;
+        }
+
+        /// <summary>
+        /// 行为应用
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p_dependencyObject"></param>
+        /// <param name="p_onlyRemove">是否只移除</param>
+        public static void ApplyBehavior<T>(this DependencyObject p_dependencyObject, bool p_onlyRemove = false) where T : Behavior, new()
+        {
+            if (p_dependencyObject == null)
+            {
+                return;
+            }
+
+            var itemBehaviors = p_dependencyObject.RemoveBehaviorInternal<T>();
+            if (itemBehaviors == null)
+            {
+                return;
+            }
+
+            if (!p_onlyRemove)
+            {
+                itemBehaviors.Add(new T());
+            }
+        }
+
+        /// <summary>
+        /// 移除行为
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p_dependencyObject"></param>
+        public static void RemoveBehavior<T>(this DependencyObject p_dependencyObject) where T : Behavior, new()
+        {
+            p_dependencyObject.RemoveBehaviorInternal<T>();
         }
 
         /// <summary>

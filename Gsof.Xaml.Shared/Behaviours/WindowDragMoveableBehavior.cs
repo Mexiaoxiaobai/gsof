@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 using Gsof.Xaml.Extensions;
@@ -26,16 +27,28 @@ namespace Gsof.Xaml.Shared.Behaviours
         {
             base.OnAttached();
 
-            AssociatedObject.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown) , AllowHandler);
+            if (AssociatedObject is ButtonBase)
+            {
+                ((Button)AssociatedObject).Click += (sender, e) => OnWindowDragMove();
+            }
+            else
+            {
+                AssociatedObject.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown), AllowHandler);
+            }
         }
 
         protected override void OnDetaching()
         {
             base.OnDetaching();
-            AssociatedObject.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown), AllowHandler);
+            AssociatedObject.RemoveHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown));
         }
 
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OnWindowDragMove();
+        }
+
+        private void OnWindowDragMove()
         {
             var window = AssociatedObject.GetWindow();
             if (window == null)
