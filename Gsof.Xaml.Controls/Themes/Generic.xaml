@@ -5,6 +5,7 @@
         <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/Clock.xaml" />
         <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/NumericUpDown.xaml" />
         <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/FilpView.xaml" />
+        <ResourceDictionary Source="/Gsof.Xaml.Controls;component/Themes/Flyout.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 

@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Interactivity;
 using Gsof.Xaml.Extensions;
 
-namespace Gsof.Xaml.Shared.Behaviours
+namespace Gsof.Xaml.Behaviours
 {
     public class WindowDragMoveableBehavior : Behavior<FrameworkElement>
     {
