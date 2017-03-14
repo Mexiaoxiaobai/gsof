@@ -13,5 +13,18 @@ namespace Gsof.Shared.Extensions
                 yield return list[i];
             }
         }
+
+        public static void Apply<T>(this IEnumerable<T> p_enumerable, Action<T> p_action)
+        {
+            if (p_enumerable == null || p_action == null)
+            {
+                return;
+            }
+
+            foreach (T t in p_enumerable)
+            {
+                p_action(t);
+            }
+        }
     }
 }
