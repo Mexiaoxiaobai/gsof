@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Interactivity;
 using System.Windows.Media;
 
@@ -185,6 +188,36 @@ namespace Gsof.Xaml.Extensions
             }
 
             return Window.GetWindow(p_dependencyObject);
+        }
+
+        public static IEnumerable<BindingExpression> GetBindingExpressions(this DependencyObject p_element)
+        {
+            var element = p_element;
+            if (element == null)
+            {
+                yield break;
+            }
+
+            var list = new List<FieldInfo>();
+            Type type = element.GetType();
+
+            while (type != typeof(object) && type != null)
+            {
+                list.AddRange(type.GetFields());
+                type = type.BaseType;
+            }
+
+            var dps = list.Where(x => x.FieldType == typeof(DependencyProperty));
+
+            foreach (var dp in dps)
+            {
+                BindingExpression be = BindingOperations.GetBindingExpression(element, (DependencyProperty) dp.GetValue(element));
+                if (be == null)
+                {
+                    continue;
+                }
+                yield return be;
+            }
         }
     }
 }
