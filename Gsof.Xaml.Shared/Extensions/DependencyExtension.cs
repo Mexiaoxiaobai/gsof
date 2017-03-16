@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Interactivity;
 using System.Windows.Media;
+using Gsof.Shared.Extensions;
 
 namespace Gsof.Xaml.Extensions
 {
@@ -190,6 +191,11 @@ namespace Gsof.Xaml.Extensions
             return Window.GetWindow(p_dependencyObject);
         }
 
+        /// <summary>
+        /// 获取所有绑定
+        /// </summary>
+        /// <param name="p_element"></param>
+        /// <returns></returns>
         public static IEnumerable<BindingExpression> GetBindingExpressions(this DependencyObject p_element)
         {
             var element = p_element;
@@ -198,25 +204,59 @@ namespace Gsof.Xaml.Extensions
                 yield break;
             }
 
-            var list = new List<FieldInfo>();
-            Type type = element.GetType();
-
-            while (type != typeof(object) && type != null)
-            {
-                list.AddRange(type.GetFields());
-                type = type.BaseType;
-            }
-
-            var dps = list.Where(x => x.FieldType == typeof(DependencyProperty));
+            var dps = element.GetStaticFields(true).Where(x => x.FieldType == typeof(DependencyProperty));
 
             foreach (var dp in dps)
             {
-                BindingExpression be = BindingOperations.GetBindingExpression(element, (DependencyProperty) dp.GetValue(element));
+                BindingExpression be = BindingOperations.GetBindingExpression(element, (DependencyProperty)dp.GetValue(element));
                 if (be == null)
                 {
                     continue;
                 }
                 yield return be;
+            }
+        }
+
+        /// <summary>
+        /// 获取类型为T，当前控件逻辑树下的子对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p_element"></param>
+        /// <param name="p_func"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> LogicalChildrenOfType<T>(this DependencyObject p_element, Func<T, bool> p_func = null)
+        {
+            var element = p_element;
+            if (element == null)
+            {
+                yield break;
+            }
+
+            var children = LogicalTreeHelper.GetChildren(element);
+
+            foreach (var child in children)
+            {
+                var dpObj = child as DependencyObject;
+                if (dpObj is T)
+                {
+                    var t = (T)child;
+                    if (p_func != null && !p_func(t))
+                    {
+                        continue;
+                    }
+
+                    yield return (T)child;
+                }
+
+                if (dpObj == null)
+                {
+                    continue;
+                }
+
+                foreach (var tmp in dpObj.LogicalChildrenOfType<T>())
+                {
+                    yield return tmp;
+                }
             }
         }
     }

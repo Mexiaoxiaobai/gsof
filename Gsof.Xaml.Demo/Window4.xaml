@@ -24,7 +24,15 @@
                          Text="{Binding Path=B,Mode=TwoWay,UpdateSourceTrigger=Explicit}" />
                 <TextBox Grid.Row="2"
                          Text="{Binding Path=C,Mode=TwoWay,UpdateSourceTrigger=Explicit}" />
+                <Grid Grid.Row="3">
+                    <TextBox Text="{Binding Path=A,Mode=TwoWay,UpdateSourceTrigger=Explicit}" />
+                    <TextBox Text="{Binding Path=B,Mode=TwoWay,UpdateSourceTrigger=Explicit}" />
+                    <TextBox Text="{Binding Path=C,Mode=TwoWay,UpdateSourceTrigger=Explicit}" />
+                </Grid>
             </Grid>
+
+            <TextBlock x:Name="_tb"
+                       Text="aa" />
 
             <Button Content="Update">
                 <i:Interaction.Triggers>

@@ -31,14 +31,17 @@ namespace Gsof.Xaml.Behaviours
                 return;
             }
 
-            var children = LogicalTreeHelper.GetChildren(Target);
+            var tBindings = Target.GetBindingExpressions();
+            tBindings.Apply(i => i.UpdateSource());
+
+            var children = Target.LogicalChildrenOfType<FrameworkElement>(); // LogicalTreeHelper.GetChildren(Target);
 
             if (children == null)
             {
                 return;
             }
 
-            foreach (DependencyObject child in children)
+            foreach (var child in children)
             {
                 var bindings = child.GetBindingExpressions();
                 bindings.Apply(i => i.UpdateSource());

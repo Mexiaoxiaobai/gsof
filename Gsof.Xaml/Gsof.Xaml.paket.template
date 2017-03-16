@@ -2,7 +2,7 @@ type project
 licenseUrl http://opensource.org/licenses/MIT
 
 dependencies
-	Gsof >= 0.1.1
+	Gsof >= 0.1.3
 
 files
 	./bin/Release/Net40/Gsof.Xaml.dll ==> lib/net40
