@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:Gsof.Xaml.Demo"
-        xmlns:gsof="http://gsof.org"
         mc:Ignorable="d"
         Title="Window4"
         Height="300"
-        Width="300">
+        Width="300"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:gsof="http://gsof.org">
     <Grid>
         <StackPanel>
             <Grid x:Name="_inputGrid">
@@ -33,6 +33,8 @@
 
             <TextBlock x:Name="_tb"
                        Text="aa" />
+
+            <Image />
 
             <Button Content="Update">
                 <i:Interaction.Triggers>
