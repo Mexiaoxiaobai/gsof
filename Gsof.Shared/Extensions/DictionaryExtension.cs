@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Gsof.Shared.Extensions
+namespace Gsof.Extensions
 {
     public static class DictionaryExtension
     {
