@@ -25,9 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gsof.Xaml.PdfViewer", "Gsof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gsof.Pdf", "Gsof.Pdf\Gsof.Pdf.csproj", "{17F485A5-20F9-4CE8-9C33-CD29D8B182EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gsof.Portable", "Gsof.Portable\Gsof.Portable.csproj", "{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Gsof.Xaml.Shared\Gsof.Xaml.Shared.projitems*{314cf3f1-5564-40f0-8d82-bedf044ea402}*SharedItemsImports = 13
+		Gsof.Shared\Gsof.Shared.projitems*{3b269ead-8870-4b1d-89cf-d4b4d036cf12}*SharedItemsImports = 4
 		Gsof.Shared\Gsof.Shared.projitems*{76834b98-7e3d-43d7-b645-398828250534}*SharedItemsImports = 13
 		Gsof.Xaml.Shared\Gsof.Xaml.Shared.projitems*{ac4e88c9-3b38-4f48-907a-3cebdd6f4535}*SharedItemsImports = 4
 		Gsof.Shared\Gsof.Shared.projitems*{ba11514c-ead2-4f52-85b1-fb91113fe766}*SharedItemsImports = 4
@@ -92,6 +95,12 @@ Global
 		{17F485A5-20F9-4CE8-9C33-CD29D8B182EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17F485A5-20F9-4CE8-9C33-CD29D8B182EB}.Release-Net45|Any CPU.ActiveCfg = Release|Any CPU
 		{17F485A5-20F9-4CE8-9C33-CD29D8B182EB}.Release-Net45|Any CPU.Build.0 = Release|Any CPU
+		{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}.Release-Net45|Any CPU.ActiveCfg = Release|Any CPU
+		{3B269EAD-8870-4B1D-89CF-D4B4D036CF12}.Release-Net45|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
