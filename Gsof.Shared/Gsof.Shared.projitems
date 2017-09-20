@@ -21,6 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\IntPtrExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ObjectExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\PathExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ProcessEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ProcessExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ReflectionExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TaskExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtension.cs" />
