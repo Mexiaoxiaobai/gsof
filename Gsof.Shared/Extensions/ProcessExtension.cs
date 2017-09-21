@@ -8,7 +8,7 @@ namespace Gsof.Extensions
 {
     public static class ProcessExtension
     {
-        public static Task<string> Exec(this Process p_process)
+        public static Task<string> Exec(this Process p_process, int timeout = -1)
         {
             var process = p_process;
             if (process == null)
@@ -26,7 +26,7 @@ namespace Gsof.Extensions
                     process.StartInfo.UseShellExecute = false;
 
                     process.Start();
-                    process.WaitForExit();
+                    process.WaitForExit(timeout);
                     var output = process.StandardOutput.ReadToEnd();
                     tcs.SetResult(output);
                 }

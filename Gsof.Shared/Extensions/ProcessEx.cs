@@ -9,7 +9,7 @@ namespace Gsof.Extensions
 {
     public class ProcessEx
     {
-        public static Task<string> Exec(string p_fileName, string p_args)
+        public static Task<string> Exec(string p_fileName, string p_args, int timeout = -1)
         {
             var process = new Process();
 
