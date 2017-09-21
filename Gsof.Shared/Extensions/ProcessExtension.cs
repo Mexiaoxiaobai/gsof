@@ -13,7 +13,7 @@ namespace Gsof.Extensions
             var process = p_process;
             if (process == null)
             {
-                return Task.FromResult(string.Empty);
+                return TaskExtensions.FromResult(string.Empty);
             }
 
             var tcs = new TaskCompletionSource<string>();
