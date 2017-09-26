@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gsof.Shared.WinApi
+namespace Gsof.WinApi
 {
     public class Kernel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Gsof.Shared.WinApi
+namespace Gsof.WinApi
 {
     internal class NativeMethods
     {
