@@ -26,5 +26,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ReflectionExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TaskExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WinApi\Enums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WinApi\Kernel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WinApi\NativeMethods.cs" />
   </ItemGroup>
 </Project>
