@@ -26,5 +26,28 @@ namespace Gsof.Shared.Extensions
                 p_action(t);
             }
         }
+
+        public static IEnumerable<T> Distinct<T, T1>(this IEnumerable<T> p_enumerable, Func<T, T1> p_func)
+        {
+            if (p_enumerable == null)
+            {
+                return null;
+            }
+
+            var dic = new Dictionary<T1, T>();
+
+            foreach (var item in p_enumerable)
+            {
+                var key = p_func(item);
+                if (key == null)
+                {
+                    continue;
+                }
+                
+                dic[key] = item;
+            }
+
+            return dic.Values;
+        }
     }
 }
