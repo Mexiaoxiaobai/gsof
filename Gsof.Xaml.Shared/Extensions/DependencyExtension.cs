@@ -149,12 +149,13 @@ namespace Gsof.Xaml.Extensions
         /// <param name="p_onlyRemove">是否只移除</param>
         public static void ApplyBehavior<T>(this DependencyObject p_dependencyObject, bool p_onlyRemove = false) where T : Behavior, new()
         {
-            if (p_dependencyObject == null)
+            var deo = p_dependencyObject;
+            if (deo == null)
             {
                 return;
             }
 
-            var itemBehaviors = p_dependencyObject.RemoveBehaviorInternal<T>();
+            var itemBehaviors = deo.RemoveBehaviorInternal<T>();
             if (itemBehaviors == null)
             {
                 return;

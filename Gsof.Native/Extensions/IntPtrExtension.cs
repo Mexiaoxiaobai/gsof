@@ -3,7 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Gsof.Shared.Extensions
+namespace Gsof.Native.Extensions
 {
     public static class IntPtrExtension
     {
@@ -17,8 +17,6 @@ namespace Gsof.Shared.Extensions
 
             IntPtr p = Marshal.AllocHGlobal(bytes.Length);
             Marshal.Copy(bytes, 0, p, bytes.Length);
-
-            Version v= new Version();
 
             return p;
         }

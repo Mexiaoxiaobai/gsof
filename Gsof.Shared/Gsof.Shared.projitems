@@ -18,7 +18,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\EnumerableExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\Md5Extension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateTimeExtension.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\IntPtrExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ObjectExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\PathExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ProcessEx.cs" />
