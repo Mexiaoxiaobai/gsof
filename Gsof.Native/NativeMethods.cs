@@ -17,5 +17,8 @@ namespace Gsof.Native
 
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
+
+        [DllImport("kernel32.dll", EntryPoint = "CopyMemory", SetLastError = true)]
+        public static extern void CopyMemory(IntPtr dest, IntPtr src, uint count);
     }
 }
