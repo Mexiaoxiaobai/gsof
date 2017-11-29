@@ -11,5 +11,15 @@
         {
             return (uint)p_bool.ToInt();
         }
+
+        public static int ToInt(this bool? p_bool)
+        {
+            return p_bool?.ToInt() ?? 0;
+        }
+
+        public static uint ToUint(this bool? p_bool)
+        {
+            return (uint)p_bool.ToInt();
+        }
     }
 }
