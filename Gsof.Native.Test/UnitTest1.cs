@@ -20,6 +20,8 @@ namespace Gsof.Native.Test
             {
                 using (var native1 = NativeFactory.Create(@"../../libtest.dll"))
                 {
+                    var result1 = native1.Invoke<int, Test>(input);
+
                     var test = native1.GetFunction<Test>();
                     result = test(input);
                 }
